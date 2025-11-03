@@ -59,7 +59,10 @@ body {
 | Images load correctly            | ✅               |
 | Contrast test (WAVE)             | ✅ Pass          |
 | HTML validation (Validator)      | ✅ Pass          |
-| Lighthouse performance improved  | ✅               |
+| Lighthouse desktop performance   | ✅               |
+|   - Home                         |  95%             |
+|   - Product                      |  99%
+|   - Contact                      |  100%
 | Default font NOT used            | ✅ using Poppins |
 
 📂 Files in this project
