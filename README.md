@@ -26,6 +26,7 @@ The font used is **Poppins** from Google Fonts.
 body {
   font-family: "Poppins", sans-serif;
 }
+```
 
 Images
 
