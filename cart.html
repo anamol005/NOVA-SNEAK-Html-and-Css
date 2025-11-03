@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>NOVA SNEAKS — Cart</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-1">NOVA</span> <span class="brand-2">SNEAKS</span>
+    </a>
+    <nav class="nav">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="products.html">Products</a>
+      <a class="nav-link" href="contact.html">Contact</a>
+      <a class="cart-link" href="cart.html" aria-label="Cart">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path d="M7 4h-2l-1 2h2l3.6 7.59-1.35 2.45c-.16.29-.25.62-.25.96 0 1.1.9 2 2 2h9v-2h-9l1.1-2h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1h-14.31l-.94-2zm-1 16c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2zm10 0c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2z" fill="currentColor"/>
+        </svg>
+        <span class="cart-badge">0</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="title">Your Cart</h2>
+      <p class="muted">Review your selection</p>
+    </div>
+
+    <div class="cart">
+      <div class="cart-items" id="cartItems">
+        <!-- Dynamic items will load here -->
+      </div>
+
+      <aside class="cart-summary">
+        <h3>Summary</h3>
+        <div class="cart-line">
+          <span>Subtotal</span><span id="subtotalAmount">€0</span>
+        </div>
+        <div class="cart-line">
+          <span>Shipping</span><span id="shippingAmount">€0</span>
+        </div>
+        <div class="cart-total">
+          <span>Total</span><span id="totalAmount">€0</span>
+        </div>
+        <a class="btn btn-primary wide" href="contact.html">Proceed to Checkout</a>
+        <a class="btn btn-ghost wide" href="products.html">Continue Shopping</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    © 2025 NOVA SNEAKS — Designed for Motion.
+  </div>
+</footer>
+
+<script>
+/* ------------------ CART PAGE SCRIPT ------------------ */
+function renderCart() {
+  const container = document.getElementById("cartItems");
+  const cart = JSON.parse(localStorage.getItem("novaCart") || "[]");
+
+  if (cart.length === 0) {
+    container.innerHTML = `
+      <div class="cart-empty">
+        <p>Your cart is empty.</p>
+        <a class="btn btn-primary" href="products.html">Browse Sneakers</a>
+      </div>`;
+    document.getElementById("subtotalAmount").textContent = "€0";
+    document.getElementById("totalAmount").textContent = "€0";
+    document.querySelector(".cart-badge").textContent = "0";
+    return;
+  }
+
+  let subtotal = 0;
+  let html = "";
+
+  cart.forEach((item, index) => {
+    const sub = item.price * item.qty;
+    subtotal += sub;
+
+    html += `
+      <div class="cart-row">
+        <div class="cart-col img"><img src="${item.img}" alt="${item.name}"/></div>
+        <div class="cart-col info">
+          <strong>${item.name}</strong>
+          <div class="muted small">Qty: ${item.qty}</div>
+        </div>
+        <div class="cart-col price">€${item.price}</div>
+        <div class="cart-col qty">${item.qty}</div>
+        <div class="cart-col sub">€${sub}</div>
+        <div class="cart-col remove"><a href="#" class="remove-item" data-index="${index}">Remove</a></div>
+      </div>`;
+  });
+
+  container.innerHTML = html;
+
+  // Update totals
+  document.getElementById("subtotalAmount").textContent = `€${subtotal}`;
+  document.getElementById("totalAmount").textContent = `€${subtotal}`;
+  document.querySelector(".cart-badge").textContent = cart.length;
+
+  // Enable removal
+  document.querySelectorAll(".remove-item").forEach(btn => {
+    btn.addEventListener("click", e => {
+      e.preventDefault();
+      const idx = parseInt(btn.dataset.index);
+      const cartData = JSON.parse(localStorage.getItem("novaCart") || "[]");
+      cartData.splice(idx, 1);
+      localStorage.setItem("novaCart", JSON.stringify(cartData));
+      renderCart();
+    });
+  });
+}
+
+// Run on load
+renderCart();
+</script>
+
+<style>
+/* fallback visuals for empty cart */
+.cart-empty {
+  text-align: center;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+}
+.cart-empty p {
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+</style>
+
+</body>
+</html>

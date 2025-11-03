@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOVA SNEAKS | All Sneakers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-1">NOVA</span> <span class="brand-2">SNEAKS</span>
+      </a>
+      <nav class="nav">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="products.html">Products</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <a class="cart-link" href="cart.html" aria-label="Cart">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M7 4h-2l-1 2h2l3.6 7.59-1.35 2.45c-.16.29-.25.62-.25.96 0 1.1.9 2 2 2h9v-2h-9l1.1-2h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1h-14.31l-.94-2zm-1 16c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2zm10 0c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2z" fill="currentColor"/>
+          </svg>
+          <span class="cart-badge">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section products-page">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="title">All Sneakers</h2>
+        <p class="muted">Find your pace — Street, Performance, or Luxury.</p>
+      </div>
+
+      <div class="filter-container">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="street">Street</button>
+          <button class="filter-btn" data-filter="performance">Performance</button>
+          <button class="filter-btn" data-filter="luxury">Luxury</button>
+        </div>
+
+        <div class="product-grid">
+          <!-- STREET -->
+          <div class="card street">
+            <img src="img/street_pulse.jpg" alt="Street Pulse sneaker">
+            <h3>Street Pulse</h3>
+            <p>€129</p>
+            <button class="buy-btn add-to-cart" data-name="Street Pulse" data-price="129" data-img="img/STREET PULSE.jpg">Add to Cart</button>
+          </div>
+
+          <div class="card street">
+            <img src="img/urban_echo.jpg" alt="Urban Echo sneaker">
+            <h3>Urban Echo</h3>
+            <p>€119</p>
+            <button class="buy-btn add-to-cart" data-name="Urban Echo" data-price="119" data-img="img/URBAN ECHO.jpg">Add to Cart</button>
+          </div>
+
+          <div class="card street">
+            <img src="img/street_wave.jpg" alt="Street Wave sneaker">
+            <h3>Street Wave</h3>
+            <p>€129</p>
+            <button class="buy-btn add-to-cart" data-name="Street Wave" data-price="129" data-img="img/STREET WAVE.jpg">Add to Cart</button>
+          </div>
+
+          <!-- PERFORMANCE -->
+          <div class="card performance">
+            <img src="img/nova_flux.jpg" alt="Nova Flux shoe">
+            <h3>Nova Flux</h3>
+            <p>€149</p>
+            <button class="buy-btn add-to-cart" data-name="Nova Flux" data-price="149" data-img="img/NOVA FLUX.jpg">Add to Cart</button>
+          </div>
+
+          <div class="card performance">
+            <img src="img/aero_knit.jpg" alt="Aero Knit shoe">
+            <h3>Aero Knit</h3>
+            <p>€159</p>
+            <button class="buy-btn add-to-cart" data-name="Aero Knit" data-price="159" data-img="img/AERO KNIT.jpg">Add to Cart</button>
+          </div>
+
+          <div class="card performance">
+            <img src="img/carbon_glide.jpg" alt="Carbon Glide shoe">
+            <h3>Carbon Glide</h3>
+            <p>€169</p>
+            <button class="buy-btn add-to-cart" data-name="Carbon Glide" data-price="169" data-img="img/CARBON GLIDE.jpg">Add to Cart</button>
+          </div>
+
+          <!-- LUXURY -->
+          <div class="card luxury">
+            <img src="img/monolith_lx.jpg" alt="Monolith LX shoe">
+            <h3>Monolith LX</h3>
+            <p>€199</p>
+            <button class="buy-btn add-to-cart" data-name="Monolith LX" data-price="199" data-img="img/MONOLITH LX.jpg">Add to Cart</button>
+          </div>
+
+          <div class="card luxury">
+            <img src="img/vanta_noir.jpg" alt="Vanta Noir shoe">
+            <h3>Vanta Noir</h3>
+            <p>€219</p>
+            <button class="buy-btn add-to-cart" data-name="Vanta Noir" data-price="219" data-img="img/VANTA NOIR.jpg">Add to Cart</button>
+          </div>
+
+          <div class="card luxury">
+            <img src="img/prime_luxe.jpg" alt="Prime Luxe shoe">
+            <h3>Prime Luxe</h3>
+            <p>€239</p>
+            <button class="buy-btn add-to-cart" data-name="Prime Luxe" data-price="239" data-img="img/PRIME LUXE.jpg">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">© 2025 NOVA SNEAKS — Designed for Motion.</div>
+  </footer>
+
+  <!-- FILTER + CART SCRIPT -->
+  <script>
+    // --- FILTER LOGIC ---
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+        cards.forEach(card => {
+          card.style.display = (filter === 'all' || card.classList.contains(filter)) ? 'block' : 'none';
+        });
+      });
+    });
+
+    // --- ADD TO CART LOGIC ---
+    const addBtns = document.querySelectorAll('.add-to-cart');
+    addBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.dataset.name;
+        const price = parseFloat(btn.dataset.price);
+        const img = btn.dataset.img;
+        const cart = JSON.parse(localStorage.getItem("novaCart") || "[]");
+
+        const existing = cart.find(item => item.name === name);
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cart.push({ name, price, img, qty: 1 });
+        }
+
+        localStorage.setItem("novaCart", JSON.stringify(cart));
+
+        // Button feedback
+        btn.textContent = "Added!";
+        btn.classList.add("added");
+        setTimeout(() => {
+          btn.textContent = "Add to Cart";
+          btn.classList.remove("added");
+        }, 1000);
+
+        // Update cart badge
+        const badge = document.querySelector('.cart-badge');
+        badge.textContent = cart.length;
+      });
+    });
+
+    // --- CART BADGE LOAD ---
+    const savedCart = JSON.parse(localStorage.getItem("novaCart") || "[]");
+    const badge = document.querySelector('.cart-badge');
+    badge.textContent = savedCart.length;
+  </script>
+
+</body>
+</html>
