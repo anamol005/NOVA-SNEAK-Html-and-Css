@@ -1,83 +1,76 @@
-# NOVA SNEAKS – Website Project
+# NOVA SNEAKS —  Sneaker Store Website
 
-This is my HTML + CSS assignment based on the provided layout instructions.  
-The page contains three pages: Home, Products and Contact.  
-My own color palette, font and images are used (as required in the assignment).
+This repository contains my HTML + CSS assignment project.  
+The goal was to recreate the provided Home, Products, and Contact page layouts, using my own colors, images, typography, and visual structure.
 
----
-
-## Pages Included
-
-| Page | File |
-|------|------|
-| Home | `index.html` |
-| Products | `products.html` |
-| Contact | `contact.html` |
+This project is built as a 3-page static website.
 
 ---
 
-## Font Used
+## 🔗 Website Pages
 
-The font used is **Poppins** from Google Fonts.
+| Page     | File          | Description |
+|----------|---------------|-------------|
+| Home     | `index.html`  | Hero section, featured sneakers, call-to-action |
+| Products | `products.html` | Full sneaker listing + filters + add-to-cart |
+| Contact  | `contact.html` | Basic contact details + form layout |
+
+All pages are connected through navigation and function similar to a real e-commerce store.
+
+---
+
+## 🎨 Design Choices
+
+### Typography
+I used **Poppins** from Google Fonts — clean, modern & readable.
 
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
 body {
   font-family: "Poppins", sans-serif;
 }
 ```
+| Usage                  | Color     |
+| ---------------------- | --------- |
+| Background (body)      | `#0b0b0c` |
+| Panel / Card           | `#121214` |
+| Accent Red             | `#E10600` |
+| Main Text              | `#efefef` |
+| Muted / Secondary text | `#a7a7ad` |
 
-Images
+🧩 Features Implemented
 
-All product images, hero image and icons are added in the img/ folder.
-
-Features
-
-Navigation between all 3 pages works
-
-Product filtering in Products page (Street / Performance / Luxury)
-
-Add To Cart button with localStorage counter
-
-Responsive-ish layout
-
-Custom colors (black + red theme)
-
-Lazy loading added for performance improvement
-
-Validation / Testing
-
-HTML validation passed (no errors)
-
-Contrast check done using: https://wave.webaim.org/
-
-Lighthouse results:
-
-Performance: 90+
-
-Accessibility: 90+
-
-Best Practices: 90+
-
-SEO: 90+
-
-What I learned
-
-Using external fonts
-
-Working with CSS layout
-
-Basic JavaScript (filter + cart counter)
-
-Improving page performance
-
-Author
-
-Created by (Your Name)
-2025
+- Navigation works between all pages
+- Products filtering (Street / Performance / Luxury)
+- Add-to-cart system using LocalStorage
+- Dynamic cart badge count
+- Remove item animation in cart page
+- Lazy loaded + compressed images (performance improvement)
+- Custom images (imported manually)
+- Spacing & padding adjusted properly (no “text touching edges” issue)
+- NOT responsive (not required in assignment)
 
 
----
+| Requirement                      | Result          |
+| -------------------------------- | --------------- |
+| CSS included                     | ✅               |
+| Layout resembles provided layout | ✅               |
+| Navigation works                 | ✅               |
+| Images load correctly            | ✅               |
+| Contrast test (WAVE)             | ✅ Pass          |
+| HTML validation (Validator)      | ✅ Pass          |
+| Lighthouse performance improved  | ✅               |
+| Default font NOT used            | ✅ using Poppins |
 
-if you want I can also write **the RESULTS page** (the screenshots HTML they asked you to make) — do you want that too?
+📂 Files in this project
+
+- index.html
+- products.html
+- contact.html
+- style.css
+- /img folder
+
+## 🧾 About
+
+NOVA SNEAKS is a fictional sneaker brand website built for an HTML+CSS assignment.
+Focus: modern clean UI + minimal code + simple realistic e-commerce behavior.
